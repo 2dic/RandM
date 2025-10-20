@@ -12,6 +12,21 @@
         android:layout_margin="8dp"
         android:queryHint="Search characters..." />
 
+    <!-- TextView для показа активных фильтров -->
+    <TextView
+        android:id="@+id/tvActiveFilters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#E8F5E8"
+        android:padding="12dp"
+        android:textColor="#2E7D32"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:drawablePadding="8dp" />
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
@@ -38,6 +53,13 @@
                 android:padding="32dp"
                 android:visibility="gone">
 
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@android:drawable/ic_menu_report_image"
+                    app:tint="?attr/colorPrimary" />
+
                 <TextView
                     android:id="@+id/tvEmptyState"
                     android:layout_width="wrap_content"
@@ -59,6 +81,13 @@
                 android:padding="32dp"
                 android:visibility="gone">
 
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="16dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="?attr/colorError" />
+
                 <TextView
                     android:id="@+id/tvError"
                     android:layout_width="wrap_content"
@@ -69,11 +98,11 @@
                     android:textColor="?android:attr/textColorSecondary" />
 
                 <Button
+                    android:id="@+id/btnRetry"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:text="Retry"
-                    android:onClick="@{() -> viewModel.loadCharacters()}" />
+                    android:text="Retry" />
 
             </LinearLayout>
 
@@ -87,5 +116,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:tint="@android:color/white" />
 
 </LinearLayout>

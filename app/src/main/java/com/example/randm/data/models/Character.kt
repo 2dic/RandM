@@ -1,37 +1,32 @@
 package com.example.randm.data.models
 
-import com.google.gson.annotations.SerializedName
-
 data class Character(
-    @SerializedName("id")
     val id: Int,
-    @SerializedName("name")
     val name: String,
-    @SerializedName("status")
     val status: String,
-    @SerializedName("species")
     val species: String,
-    @SerializedName("type")
     val type: String,
-    @SerializedName("gender")
     val gender: String,
-    @SerializedName("origin")
-    val origin: Location,
-    @SerializedName("location")
+    val origin: Origin,
     val location: Location,
-    @SerializedName("image")
     val image: String,
-    @SerializedName("episode")
     val episode: List<String>,
-    @SerializedName("url")
     val url: String,
-    @SerializedName("created")
     val created: String
 ) {
-    data class Location(
-        @SerializedName("name")
-        val name: String,
-        @SerializedName("url")
-        val url: String
+    data class Origin(val name: String, val url: String)
+    data class Location(val name: String, val url: String)
+
+    fun toEntity(): CharacterEntity = CharacterEntity(
+        id = id,
+        name = name,
+        status = status,
+        species = species,
+        type = type,
+        gender = gender,
+        image = image,
+        originName = origin.name,
+        locationName = location.name,
+        created = created
     )
 }

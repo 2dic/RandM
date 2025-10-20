@@ -1,6 +1,7 @@
 package com.example.randm.data.api
 
 import com.example.randm.data.models.ApiResponse
+import com.example.randm.data.models.Character as ModelCharacter
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -19,5 +20,5 @@ interface RickMortyApiService {
     @GET("character/{id}")
     suspend fun getCharacterById(
         @Path("id") id: Int
-    ): Character
+    ): ModelCharacter
 }

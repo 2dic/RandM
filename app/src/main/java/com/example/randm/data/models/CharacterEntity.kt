@@ -17,4 +17,19 @@ data class CharacterEntity(
     @ColumnInfo(name = "location_name") val locationName: String,
     @ColumnInfo(name = "created") val created: String,
     @ColumnInfo(name = "last_updated") val lastUpdated: Long = System.currentTimeMillis()
-)
+) {
+    fun toCharacter(): Character = Character(
+        id = id,
+        name = name,
+        status = status,
+        species = species,
+        type = type,
+        gender = gender,
+        origin = Character.Origin(originName, ""),
+        location = Character.Location(locationName, ""),
+        image = image,
+        episode = emptyList(),
+        url = "",
+        created = created
+    )
+}

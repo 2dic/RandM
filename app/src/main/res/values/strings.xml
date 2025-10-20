@@ -4,4 +4,19 @@
     <string name="no_characters_found">No characters found</string>
     <string name="error_loading_characters">Error loading characters</string>
     <string name="retry">Retry</string>
+    <string name="action_settings">Settings</string>
+    <string name="character_details">Character Details</string>
+    <string name="filter_characters">Filter Characters</string>
+    <string name="status">Status</string>
+    <string name="gender">Gender</string>
+    <string name="species">Species</string>
+    <string name="alive">Alive</string>
+    <string name="dead">Dead</string>
+    <string name="unknown">Unknown</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="genderless">Genderless</string>
+    <string name="apply">Apply</string>
+    <string name="clear">Clear</string>
+
 </resources>

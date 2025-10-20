@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.rickmorty"
+    namespace = "com.example.randm"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.rickmorty"
+        applicationId = "com.example.randm"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -37,6 +37,11 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    buildTypes {
+        debug {
+            isDebuggable = true
+        }
     }
 }
 
@@ -71,6 +76,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
     // UI
+    implementation("androidx.cardview:cardview:1.0.0")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
     // Background tasks

@@ -2,6 +2,9 @@ package com.example.randm.ui.detail
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.asLiveData
+import com.example.randm.data.models.Character as ModelCharacter
+import com.example.randm.data.models.Result
 import com.example.randm.data.repository.CharacterRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,8 +16,10 @@ class CharacterDetailViewModel(
     private val characterId: Int
 ) : ViewModel() {
 
-    private val _character = MutableStateFlow<Result<Character>>(Result.Loading)
-    val character: StateFlow<Result<Character>> = _character.asStateFlow()
+    private val _character = MutableStateFlow<Result<ModelCharacter>>(Result.Loading)
+    val character: StateFlow<Result<ModelCharacter>> = _character.asStateFlow()
+
+    val characterLiveData = character.asLiveData()
 
     init {
         loadCharacter()
@@ -22,7 +27,11 @@ class CharacterDetailViewModel(
 
     fun loadCharacter() {
         viewModelScope.launch {
-            _character.value = repository.getCharacterById(characterId)
+            try {
+                _character.value = repository.getCharacterById(characterId)
+            } catch (e: Exception) {
+                _character.value = Result.Error("Failed to load character: ${e.message}")
+            }
         }
     }
 }

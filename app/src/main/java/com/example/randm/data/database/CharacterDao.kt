@@ -2,12 +2,13 @@ package com.example.randm.data.database
 
 import androidx.room.*
 import com.example.randm.data.models.CharacterEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface CharacterDao {
 
     @Query("SELECT * FROM characters")
-    suspend fun getAllCharacters(): List<CharacterEntity>
+    fun getAllCharacters(): Flow<List<CharacterEntity>>
 
     @Query("SELECT * FROM characters WHERE id = :id")
     suspend fun getCharacterById(id: Int): CharacterEntity?

@@ -1,7 +1,9 @@
-package com.example.rickmorty.utils
+package com.example.randm.utils
 
+import com.example.randm.data.models.Character
 import com.example.randm.data.models.CharacterEntity
 
+// Extension function для Character -> CharacterEntity
 fun Character.toEntity(): CharacterEntity {
     return CharacterEntity(
         id = id,
@@ -17,6 +19,7 @@ fun Character.toEntity(): CharacterEntity {
     )
 }
 
+// Extension function для CharacterEntity -> Character
 fun CharacterEntity.toCharacter(): Character {
     return Character(
         id = id,
@@ -25,7 +28,7 @@ fun CharacterEntity.toCharacter(): Character {
         species = species,
         type = type,
         gender = gender,
-        origin = Character.Location(originName, ""),
+        origin = Character.Origin(originName, ""),
         location = Character.Location(locationName, ""),
         image = image,
         episode = emptyList(),
