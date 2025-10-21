@@ -68,6 +68,7 @@
 - CharacterDetailViewModel - управление состоянием деталей персонажа
 
 ## Структура
+```
 app/
 ├── data/
 │   ├── api/          # Retrofit сервисы и модели API
@@ -80,6 +81,7 @@ app/
 │   ├── detail/       # Экран деталей персонажа
 │   └── filter/       # Экран фильтров
 └── utils/            # Extension functions и утилиты
+```
 
 ##Требования
 - Android Studio Arctic Fox или новее
